@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: run-script
-        uses: @discoveryedu/github-actions-release-automerge@main
+        uses: https://github.com/discoveryedu/github-actions-release-automerge@main
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
