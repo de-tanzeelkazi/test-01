@@ -1,0 +1,14 @@
+name: Cascading branch merge on commit
+
+on:
+  push:
+    branches:
+      - release/**
+jobs:
+  release-auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run-script
+        uses: discoveryedu/github-actions-release-automerge@main
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
