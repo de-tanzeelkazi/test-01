@@ -1,5 +1,6 @@
 name: Cascading branch merge on commit
 
+
 on:
   push:
     branches:
