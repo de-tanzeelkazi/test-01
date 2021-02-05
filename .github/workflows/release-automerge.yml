@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: discoveryedu/github-actions-release-automerge
-          ref: refs/heads/main
+          ref: refs/heads/develop
           ssh-key: ${{secrets.READ_ONLY_RELEASE_AUTOMERGE}}
           persist-credentials: false
           path: ./.github/actions/release-automerge
