@@ -8,7 +8,15 @@ jobs:
   release-auto-merge:
     runs-on: ubuntu-latest
     steps:
-      - name: run-script
-        uses: https://github.com/discoveryedu/github-actions-release-automerge@main
+      - name: Checkout action
+        uses: actions/checkout@v2
+        with:
+          repository: discoveryedu/github-actions-release-automerge
+          ref: refs/heads/main
+          token: ${{secrets.GITHUB_TOKEN}}
+          persist-credentials: false
+          path: ./.github/actions/release-automerge
+      - name: Run action
+        uses: ./.github/actions/release-automerge
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
