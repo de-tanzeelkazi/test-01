@@ -1,5 +1,6 @@
 name: Cascading branch merge on commit
 
+
 on:
   push:
     branches:
@@ -8,7 +9,15 @@ jobs:
   release-auto-merge:
     runs-on: ubuntu-latest
     steps:
-      - name: run-script
-        uses: discoveryedu/github-actions-release-automerge@main
+      - name: Checkout action
+        uses: actions/checkout@v2
+        with:
+          repository: discoveryedu/github-actions-release-automerge
+          ref: refs/heads/main
+          ssh-key: ${{secrets.READ_ONLY_RELEASE_AUTOMERGE}}
+          persist-credentials: false
+          path: ./.github/actions/release-automerge
+      - name: Run action
+        uses: ./.github/actions/release-automerge
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
