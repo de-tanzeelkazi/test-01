@@ -13,7 +13,7 @@ jobs:
         with:
           repository: discoveryedu/github-actions-release-automerge
           ref: refs/heads/main
-          token: ${{secrets.GITHUB_TOKEN}}
+          ssh-key: ${{secrets.READ_ONLY_RELEASE_AUTOMERGE}}
           persist-credentials: false
           path: ./.github/actions/release-automerge
       - name: Run action
