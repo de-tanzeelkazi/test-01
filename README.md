@@ -1,3 +1,3 @@
 # tk-test-01
 
-Text Update 06-b
+Text Update 06-c
