@@ -8,15 +8,15 @@ jobs:
   release-auto-merge:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout action
+      - name: Checkout Action
         uses: actions/checkout@v2
         with:
           repository: discoveryedu/github-actions-release-automerge
           ref: refs/heads/develop
-          ssh-key: ${{secrets.READ_ONLY_RELEASE_AUTOMERGE}}
+          ssh-key: ${{secrets.ORG_RELEASE_AUTOMERGE_READ_ONLY}}
           persist-credentials: false
           path: ./.github/actions/release-automerge
-      - name: Run action
+      - name: Execute Action
         uses: ./.github/actions/release-automerge
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
