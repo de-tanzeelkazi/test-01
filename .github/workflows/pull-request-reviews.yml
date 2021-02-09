@@ -1,0 +1,22 @@
+name: Pull Request Review Enforcer
+
+on:
+  - push
+  - pull_request
+  - pull_request_review
+jobs:
+  release-auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Action
+        uses: actions/checkout@v2
+        with:
+          repository: discoveryedu/github-actions-release-automerge
+          ref: refs/heads/main
+          ssh-key: ${{secrets.ORG_RELEASE_AUTOMERGE_READ_ONLY}}
+          persist-credentials: false
+          path: ./.github/actions/release-automerge
+      - name: Execute Action
+        uses: ./.github/actions/release-automerge
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
