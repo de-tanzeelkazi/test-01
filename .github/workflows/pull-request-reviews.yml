@@ -11,12 +11,12 @@ jobs:
       - name: Checkout Action
         uses: actions/checkout@v2
         with:
-          repository: discoveryedu/github-actions-release-automerge
+          repository: discoveryedu/github-actions-pull-request-reviews
           ref: refs/heads/main
-          ssh-key: ${{secrets.ORG_RELEASE_AUTOMERGE_READ_ONLY}}
+          ssh-key: ${{secrets.ORG_PULL_REQUEST_REVIEWS_READ_ONLY}}
           persist-credentials: false
-          path: ./.github/actions/release-automerge
+          path: ./.github/actions/pull-request-reviews
       - name: Execute Action
-        uses: ./.github/actions/release-automerge
+        uses: ./.github/actions/pull-request-reviews
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
