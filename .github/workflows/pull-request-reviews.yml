@@ -1,0 +1,22 @@
+name: Pull Request Review Enforcer
+
+on:
+  - push
+  - pull_request
+  - pull_request_review
+jobs:
+  pull-request-reviews:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Action
+        uses: actions/checkout@v2
+        with:
+          repository: de-tanzeelkazi/github-actions-pull-request-reviews
+          ref: refs/heads/main
+          ssh-key: ${{secrets.ORG_PULL_REQUEST_REVIEWS_READ_ONLY}}
+          persist-credentials: false
+          path: ./.github/actions/pull-request-reviews
+      - name: Execute Action
+        uses: ./.github/actions/pull-request-reviews
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
