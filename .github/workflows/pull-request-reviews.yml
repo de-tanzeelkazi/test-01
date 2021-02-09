@@ -5,13 +5,13 @@ on:
   - pull_request
   - pull_request_review
 jobs:
-  release-auto-merge:
+  pull-request-reviews:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Action
         uses: actions/checkout@v2
         with:
-          repository: discoveryedu/github-actions-pull-request-reviews
+          repository: de-tanzeelkazi/github-actions-pull-request-reviews
           ref: refs/heads/main
           ssh-key: ${{secrets.ORG_PULL_REQUEST_REVIEWS_READ_ONLY}}
           persist-credentials: false
