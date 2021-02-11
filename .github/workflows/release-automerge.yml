@@ -1,6 +1,6 @@
 name: Cascading branch merge on commit
 
-on: status
+on: push
   # push:
   #   branches:
   #     - release/**
