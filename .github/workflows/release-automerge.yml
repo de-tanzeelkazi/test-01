@@ -7,7 +7,6 @@ on:
   status:
     branches:
       - release/**
-    types: [success]
 jobs:
   release-auto-merge:
     runs-on: ubuntu-latest
