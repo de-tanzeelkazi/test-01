@@ -1,9 +1,9 @@
 name: Cascading branch merge on commit
 
-on: push
-  # push:
-  #   branches:
-  #     - release/**
+on:
+  push:
+    branches:
+      - release/**
 
 jobs:
   release-auto-merge:
