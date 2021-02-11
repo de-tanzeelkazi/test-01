@@ -1,12 +1,11 @@
 name: Cascading branch merge on commit
 
-on:
+on: status
   # push:
   #   branches:
   #     - release/**
-  status:
-    branches:
-      - release/**
+    # branches:
+    #   - release/**
 jobs:
   release-auto-merge:
     runs-on: ubuntu-latest
