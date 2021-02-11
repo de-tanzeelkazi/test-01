@@ -1,10 +1,12 @@
 name: Cascading branch merge on commit
 
 on:
-  push:
+  # push:
+  #   branches:
+  #     - release/**
+  status:
     branches:
       - release/**
-  status:
     types: [success]
 jobs:
   release-auto-merge:
