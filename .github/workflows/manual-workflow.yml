@@ -1,0 +1,19 @@
+on: workflow-dispatch
+
+name: Manual workflow run
+
+jobs:
+  deploy:
+    name: Manual workflow run
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check GITHUB_REF
+      id: check-github-ref
+      run: |
+        # Build a docker container and
+        # push it to ECR so that it can
+        # be deployed to ECS.
+        export TAG="$(echo '${GITHUB_REF}' | sed 's/^.*\/\(.*\)$/\1/g')"
+
+        echo "'${TAG}'"
